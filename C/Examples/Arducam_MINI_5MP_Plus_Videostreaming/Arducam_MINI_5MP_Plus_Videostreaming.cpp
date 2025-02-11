@@ -8,7 +8,7 @@
 #include "ov5642_regs.h"
 #include <cstdlib>
 #include "stdio.h"
-#include "bsp/board.h"
+//#include "bsp/board.h"
 #include "tusb.h"
 #include "pico/mutex.h"
 
