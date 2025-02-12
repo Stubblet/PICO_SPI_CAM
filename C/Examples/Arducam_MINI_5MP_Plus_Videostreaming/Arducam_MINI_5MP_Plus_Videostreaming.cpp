@@ -50,17 +50,18 @@ int main()
   myCAM.write_reg(0x07, 0x80);
   sleep_ms(100);
   myCAM.write_reg(0x07, 0x00);
-  sleep_ms(100);
+  sleep_ms(1000);
+  printf("ArduCam Mini 5P\n");
 	while (1) 
   {
 			//Check if the ArduCAM SPI bus is OK
 			myCAM.write_reg(ARDUCHIP_TEST1, 0x55);
 			cameraCommand = myCAM.read_reg(ARDUCHIP_TEST1);
 			if (cameraCommand != 0x55) {
-				printf(" SPI interface Error!");
+				printf(" SPI interface Error!\n");
 				sleep_ms(1000); continue;
 			} else {
-				printf("ACK CMD SPI interface OK.END"); break;
+				printf("ACK CMD SPI interface OK.END\n"); break;
 			}
 	}
 
@@ -73,12 +74,12 @@ int main()
     myCAM.rdSensorReg16_8(OV5642_CHIPID_LOW, &pid);
     if((vid != 0x56) || (pid != 0x42))
     {
-      printf("Can't find OV5642 module!");
+      printf("Can't find OV5642 module!\n");
       sleep_ms(1000); continue;
     }
     else 
     {
-      printf("OV5642 detected.END"); break;
+      printf("OV5642 detected.END\n"); break;
     }
   }
 
@@ -101,12 +102,12 @@ int main()
       {
         case 0:
         myCAM.OV5642_set_JPEG_size(OV5642_320x240);sleep_ms(1000);
-        printf("ACK CMD switch to OV5642_320x240");
+        printf("ACK CMD switch to OV5642_320x240\n");
         usart_Command = 0xff;
         break;
         case 1:
         myCAM.OV5642_set_JPEG_size(OV5642_640x480);sleep_ms(1000);
-        printf("ACK CMD switch to OV5642_640x480");
+        printf("ACK CMD switch to OV5642_640x480\n");
         usart_Command = 0xff;
         break;
         case 2: 

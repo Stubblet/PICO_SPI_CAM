@@ -12,7 +12,9 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico_w CACHE STRING "Board type")
+set(PICO_BOARD pico2_w CACHE STRING "Board type")
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 cmake_minimum_required(VERSION 3.12)
 
